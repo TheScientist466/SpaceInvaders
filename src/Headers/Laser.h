@@ -5,7 +5,4 @@ class Laser
 
 public:
     Laser();
-
-private:
-    Laser
 };

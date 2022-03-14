@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Headers/Object.h"
+#include "Object.h"
 
 class Player : public Object{
 
