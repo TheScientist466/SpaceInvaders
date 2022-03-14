@@ -51,7 +51,7 @@ void Global::Update()
 {
     gameWindow->clear();
     gameWindow->draw(backgroundShape);
-    gameWindow->draw(*objManagerRef->player.getSprite());
+    gameWindow->draw(objManagerRef->player.getSprite());
     gameWindow->display();
     objManagerRef->Update();
 }

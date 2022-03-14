@@ -9,19 +9,15 @@ public:
     Object();
     ~Object();
 
-private:
+protected:
     sf::Texture* objectTexture;
     sf::Sprite objectSprite;
 
 public:
-    sf::Sprite getObjectSprite() const;
+    sf::Sprite getSprite() const;
 
     void setObjectTexture(const char* path);
     void setObjectTexture(const char* path, sf::IntRect r);
 
-    void setObjectSpriteSize(sf::Vector2i size);
-
-    void setObjectPosition(sf::Vector2f newPos);
-    void setObjectPosition(float x, float y);
-
+    void setObjectSpriteSize(sf::Vector2u size);
 };

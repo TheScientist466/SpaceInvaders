@@ -7,36 +7,19 @@ Player::Player()
 {
     speed = Config::Player::Speed;
 
-    playerTexture = new sf::Texture();
-    playerTexture->loadFromFile(Paths::PlayerImgPath);
-    playerTexture->setSmooth(true);
-    playerSprite = sf::Sprite();
-    playerSprite.setTexture(*playerTexture);
+    setObjectTexture(Paths::PlayerImgPath);
 
-    sf::Vector2f textureScale;
-    textureScale = sf::Vector2f(Config::Player::TextureSize.x / (float) playerTexture->getSize().x,
-                                Config::Player::TextureSize.x / (float) playerTexture->getSize().y);
-    playerSprite.setScale(textureScale);
+    setObjectSpriteSize(Config::Player::TextureSize);
 
-    playerSprite.setOrigin(playerTexture->getSize().x / 2, playerTexture->getSize().y);
+    objectSprite.setOrigin(objectTexture->getSize().x / 2, objectTexture->getSize().y);
 
     setPosition(Config::Player::InitPos);
-}
-
-Player::~Player()
-{
-    delete(playerTexture);
-}
-
-sf::Sprite* Player::getSprite()
-{
-    return &playerSprite;
 }
 
 void Player::setPosition(sf::Vector2f _newPos)
 {
     position = _newPos;
-    playerSprite.setPosition(_newPos);
+    objectSprite.setPosition(_newPos);
 }
 
 void Player::move(sf::Vector2f _dir)

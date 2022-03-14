@@ -10,7 +10,7 @@ Object::~Object() {
     delete objectTexture;
 }
 
-sf::Sprite Object::getObjectSprite() const
+sf::Sprite Object::getSprite() const
 {
     return objectSprite;
 }
@@ -29,7 +29,7 @@ void Object::setObjectTexture(const char* path, sf::IntRect r)
     objectSprite.setTexture(*objectTexture);
 }
 
-void Object::setObjectSpriteSize(sf::Vector2i size)
+void Object::setObjectSpriteSize(sf::Vector2u size)
 {
     sf::Vector2f textureScale;
     textureScale = sf::Vector2f(size.x / (float) objectTexture->getSize().x,
