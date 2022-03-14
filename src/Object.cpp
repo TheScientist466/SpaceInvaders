@@ -37,4 +37,20 @@ void Object::setObjectSpriteSize(sf::Vector2u size)
     objectSprite.setScale(textureScale);
 }
 
+void Object::setPosition(sf::Vector2f _newPos)
+{
+    position = _newPos;
+    objectSprite.setPosition(_newPos);
+}
 
+void Object::move(sf::Vector2f _dir)
+{
+    sf::Vector2f offset = _dir * moveSpeed;
+    sf::Vector2f pos = sf::Vector2f(offset.x + position.x, offset.y + position.y);
+    setPosition(pos);
+}
+
+void Object::move(float x, float y)
+{
+    move(sf::Vector2f(x, y));
+}
