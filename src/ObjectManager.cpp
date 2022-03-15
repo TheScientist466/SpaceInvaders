@@ -8,16 +8,16 @@ ObjectManager::ObjectManager()
     playerCanShoot = true;
 }
 
-void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _Released)
+void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _keyReleased)
 {
     if(k == sf::Keyboard::W || k == sf::Keyboard::A || k == sf::Keyboard::S ||k == sf::Keyboard::D)
     {
-        PlayerMovement(k, _Released);
+        PlayerMovement(k, _keyReleased);
     }
 
     if(k == sf::Keyboard::Space)
     {
-        if(!_Released)
+        if(!_keyReleased)
         {
             if (playerCanShoot)
             {
@@ -57,7 +57,7 @@ void ObjectManager::Update()
         lasers[i]->update();
         if(lasers[i]->getPosition().y < -150)
         {
-            delete(lasers[i]);
+            delete lasers[i];
             lasers.erase(lasers.begin()+i);
         }
     }
