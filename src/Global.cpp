@@ -51,7 +51,14 @@ void Global::Update()
 {
     gameWindow->clear();
     gameWindow->draw(backgroundShape);
+
+    for(auto& l : objManagerRef->lasers)
+    {
+        gameWindow->draw(l->getSprite());
+    }
+
     gameWindow->draw(objManagerRef->player.getSprite());
+
     gameWindow->display();
     objManagerRef->Update();
 }

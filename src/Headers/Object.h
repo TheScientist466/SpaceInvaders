@@ -25,6 +25,7 @@ public:
 
     void setObjectSpriteSize(sf::Vector2u size);
 
+    sf::Vector2f getPosition() const;
     void setPosition(sf::Vector2f newPos);
 
     void move(sf::Vector2f dir);

@@ -11,11 +11,12 @@ public:
     ObjectManager();
 
 private:
-    std::vector<Laser> lasers;
+
 
 public:
     Player player;
     sf::Vector2f playerDir;
+    std::vector<Laser*> lasers;
 
 private:
     void PlayerMovement(sf::Keyboard::Key k, bool inv);

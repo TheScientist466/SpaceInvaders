@@ -37,6 +37,11 @@ void Object::setObjectSpriteSize(sf::Vector2u size)
     objectSprite.setScale(textureScale);
 }
 
+sf::Vector2f Object::getPosition() const
+{
+    return position;
+}
+
 void Object::setPosition(sf::Vector2f _newPos)
 {
     position = _newPos;

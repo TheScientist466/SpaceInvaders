@@ -19,5 +19,12 @@ namespace Config
         static const sf::Vector2u TextureSize   = sf::Vector2u(100, 100);
 
         static const float Speed                = 5.f;
+
+        static const sf::Vector2f LaserOffset   = sf::Vector2f(0.f, -70.f);
+    }
+
+    namespace Laser
+    {
+        static const sf::Vector2u LaserSize     = sf::Vector2u(20, 20);
     }
 }
