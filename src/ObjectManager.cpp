@@ -26,27 +26,29 @@ void ObjectManager::PlayerMovement(sf::Keyboard::Key k, bool inv)
     if(!inv)
     {
         if (k == sf::Keyboard::S)
-            playerDir = sf::Vector2f(playerDir.x, 1);
+            playerDir += sf::Vector2f(0, 1);
         else if (k == sf::Keyboard::W)
-            playerDir = sf::Vector2f(playerDir.x, -1);
+            playerDir += sf::Vector2f(0, -1);
 
         if (k == sf::Keyboard::D)
-            playerDir = sf::Vector2f(1, playerDir.y);
+            playerDir += sf::Vector2f(1, 0);
         else if (k == sf::Keyboard::A)
-            playerDir = sf::Vector2f(-1, playerDir.y);
+            playerDir += sf::Vector2f(-1, 0);
     }
     else
     {
         if (k == sf::Keyboard::S)
-            playerDir = sf::Vector2f(playerDir.x, 0);
+            playerDir += sf::Vector2f(0, -1);
         else if (k == sf::Keyboard::W)
-            playerDir = sf::Vector2f(playerDir.x, 0);
+            playerDir += sf::Vector2f(0, 1);
 
         if (k == sf::Keyboard::D)
-            playerDir = sf::Vector2f(0, playerDir.y);
+            playerDir += sf::Vector2f(-1, 0);
         else if (k == sf::Keyboard::A)
-            playerDir = sf::Vector2f(0, playerDir.y);
+            playerDir += sf::Vector2f(1, 0);
     }
+
+    playerDir = sf::Vector2f(std::clamp(playerDir.x, -1.f, 1.f), std::clamp(playerDir.y, -1.f, 1.f));
 }
 
 void ObjectManager::Update()
