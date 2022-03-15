@@ -5,6 +5,7 @@
 ObjectManager::ObjectManager()
 {
     playerDir = sf::Vector2f(0, 0);
+    playerCanShoot = true;
 }
 
 void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _Released)
@@ -14,10 +15,19 @@ void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _Released)
         PlayerMovement(k, _Released);
     }
 
-    if(k == sf::Keyboard::Space && _Released)
+    if(k == sf::Keyboard::Space)
     {
-        Laser* l = new Laser(player.getPosition() + Config::Player::LaserOffset);
-        lasers.push_back(l);
+        if(!_Released)
+        {
+            if (playerCanShoot)
+            {
+                Laser* l = new Laser(player.getPosition() + Config::Player::LaserOffset);
+                lasers.push_back(l);
+                playerCanShoot = false;
+            }
+        }
+        else
+            playerCanShoot = true;
     }
 }
 

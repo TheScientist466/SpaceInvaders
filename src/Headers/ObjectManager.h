@@ -11,7 +11,7 @@ public:
     ObjectManager();
 
 private:
-
+    bool playerCanShoot;
 
 public:
     Player player;
