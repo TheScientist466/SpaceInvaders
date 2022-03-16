@@ -3,7 +3,13 @@ project(SpaceInvaders)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(SFML COMPONENTS graphics audio network system REQUIRED)
+if(UNIX)
+    find_package(SFML COMPONENTS graphics audio network system REQUIRED)
+elseif(WIN32)
+    include_directories(deps/Windows/SFML-2.5.1/bin)
+    include_directories(deps/Windows/SFML-2.5.1/include)
+    include_directories(deps/Windows/SFML-2.5.1/lib)
+endif()
 
 file(
         GLOB
