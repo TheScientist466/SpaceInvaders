@@ -2,6 +2,17 @@
 
 #include "Config/Config.h"
 
+static float clamp(float val, float lo, float hi)
+{
+    if(val < lo)
+        return lo;
+    
+    if(val > hi)
+        return hi;
+
+    return val;
+}
+
 ObjectManager::ObjectManager()
 {
     playerDir = sf::Vector2f(0, 0);
@@ -45,7 +56,7 @@ void ObjectManager::PlayerMovement(sf::Keyboard::Key k, bool inv)
     else if (k == sf::Keyboard::A)
         playerDir += sf::Vector2f(-1, 0) * sign;
 
-    playerDir = sf::Vector2f(std::clamp(playerDir.x, -1.f, 1.f), std::clamp(playerDir.y, -1.f, 1.f));
+    playerDir = sf::Vector2f(clamp(playerDir.x, -1.f, 1.f), clamp(playerDir.y, -1.f, 1.f));
 }
 
 void ObjectManager::Update()

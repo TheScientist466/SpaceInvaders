@@ -3,13 +3,11 @@ project(SpaceInvaders)
 
 set(CMAKE_CXX_STANDARD 17)
 
-if(UNIX)
-    find_package(SFML COMPONENTS graphics audio network system REQUIRED)
-elseif(WIN32)
-    include_directories(deps/Windows/SFML-2.5.1/bin)
-    include_directories(deps/Windows/SFML-2.5.1/include)
-    include_directories(deps/Windows/SFML-2.5.1/lib)
+if(WIN32)
+    set(SFML_DIR deps\\Windows\\SFML-2.5.1\\lib\\cmake\\SFML)
 endif()
+
+find_package(SFML 2.5.1 COMPONENTS graphics audio network system REQUIRED)
 
 file(
         GLOB
@@ -17,8 +15,15 @@ file(
         "src/*.cpp"
 )
 
+file(
+	GLOB
+	dll_files
+	"deps/Windows/SFML-2.5.1/bin/*"
+)
+
 add_executable(SpaceInvaders ${src_files})
 
 target_link_libraries(SpaceInvaders sfml-graphics sfml-network sfml-audio sfml-system)
 
 file(COPY "src/Assets" DESTINATION ".")
+file(COPY ${dll_files} DESTINATION ".")
