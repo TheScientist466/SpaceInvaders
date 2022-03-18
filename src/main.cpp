@@ -1,8 +1,6 @@
 #include "Headers/ObjectManager.h"
 #include "Headers/Global.h"
 
-#include <iostream>
-
 int main()
 {
     ObjectManager objs;
