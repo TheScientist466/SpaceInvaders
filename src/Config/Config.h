@@ -8,7 +8,7 @@ namespace Config
     namespace WindowConfig
     {
         static const sf::Vector2u windowDimentions  = sf::Vector2u(960U, 540U);
-        static const char *windowTitle              = "This is a window!";
+        static const char* windowTitle              = "Space Invaders";
     }
 
     namespace Player
