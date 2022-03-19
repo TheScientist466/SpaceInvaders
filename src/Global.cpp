@@ -68,6 +68,9 @@ void Global::Update()
     gameWindow->clear();
     gameWindow->draw(backgroundShape);
 
+    for(auto& enemy : objManagerRef->enemies)
+        gameWindow->draw(enemy->getSprite());
+
     for(auto& l : objManagerRef->lasers)
     {
         gameWindow->draw(l->getSprite());

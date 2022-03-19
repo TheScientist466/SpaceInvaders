@@ -17,6 +17,14 @@ ObjectManager::ObjectManager()
 {
     playerDir = sf::Vector2f(0, 0);
     playerCanShoot = true;
+
+    srand(time(nullptr));
+
+    for(int i = 0; i < 5; i++)
+    {
+        Enemy* e = new Enemy(sf::Vector2f((i + 1) * 150, 0));
+        enemies.push_back(e);
+    }
 }
 
 void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _keyReleased)
@@ -62,6 +70,16 @@ void ObjectManager::PlayerMovement(sf::Keyboard::Key k, bool inv)
 void ObjectManager::Update()
 {
     player.move(playerDir);
+
+    for(int i = 0; i < enemies.size(); i++)
+    {
+        if(!enemies[i]->isAlive)
+        {
+            delete enemies[i];
+            enemies.erase(enemies.begin()+i);
+        }
+        else enemies[i]->Update();
+    }
 
     for(int i = 0; i < lasers.size(); i++)
     {

@@ -14,7 +14,7 @@ namespace Config
     namespace Player
     {
         static const sf::Vector2f Hitbox        = sf::Vector2f(100.f,   250.f);
-        static const sf::Vector2f InitPos       = sf::Vector2f(480.f,   100.f);
+        static const sf::Vector2f InitPos       = sf::Vector2f(480.f,   500.f);
 
         static const sf::Vector2u TextureSize   = sf::Vector2u(100, 100);
 
