@@ -23,6 +23,8 @@ make
 ```
 
 #### On Windows
+
+###### Dependencies:
 - MinGW32-gcc
 - MinGW32-g++
 - MinGW32-make
