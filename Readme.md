@@ -30,6 +30,8 @@ make
 - MinGW32-make
 - Cmake
 
+
+###### Building:
 ```
 mkdir build
 cd build
