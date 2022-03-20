@@ -11,7 +11,8 @@ this purely for self-teaching purposes so that I can learn new things.
 
 ###### Prerequisites:
 - SFML from official repositories
-- Cmake
+- make
+- cmake
 - clang or g++ compiler
 
 ###### Building:
@@ -25,10 +26,10 @@ make
 #### On Windows
 
 ###### Prerequisite:
-- MinGW32-gcc
-- MinGW32-g++
-- MinGW32-make
-- Cmake
+- mingw32-gcc
+- mingw32-g++
+- mingw32-make
+- cmake
 
 
 ###### Building:
