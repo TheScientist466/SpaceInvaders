@@ -9,7 +9,7 @@ this purely for self-teaching purposes so that I can learn new things.
 
 #### On linux
 
-###### Dependencies:
+###### Prerequisites:
 - SFML from official repositories
 - Cmake
 - clang or g++ compiler
@@ -24,7 +24,7 @@ make
 
 #### On Windows
 
-###### Dependencies:
+###### Prerequisite:
 - MinGW32-gcc
 - MinGW32-g++
 - MinGW32-make
