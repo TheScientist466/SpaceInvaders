@@ -8,6 +8,10 @@ AudioPlayer::AudioPlayer()
     backgroundMusic.setLoop(true);
 
     laserSound.loadFromFile(Paths::LaserAudio);
+    laserPlayer.setBuffer(laserSound);
+
+    explosionSound.loadFromFile(Paths::ExplosionSound);
+    explotionPlayer.setBuffer(explosionSound);
 }
 
 void AudioPlayer::playBackgroundMusic()
@@ -15,8 +19,12 @@ void AudioPlayer::playBackgroundMusic()
     backgroundMusic.play();
 }
 
-void AudioPlayer::playSound(sf::SoundBuffer &s)
+void AudioPlayer::playLaserSound()
 {
-    soundPlayer.setBuffer(s);
-    soundPlayer.play();
+    laserPlayer.play();
+}
+
+void AudioPlayer::playExplosionSound()
+{
+    explotionPlayer.play();
 }

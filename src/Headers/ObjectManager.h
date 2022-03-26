@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Laser.h"
 #include "Enemy.h"
+#include "AudioPlayer.h"
 
 class ObjectManager {
 
@@ -19,6 +20,7 @@ public:
     sf::Vector2f playerDir;
     std::vector<Laser*> lasers;
     std::vector<Enemy*> enemies;
+    AudioPlayer* audPlayerRef;
 
 private:
     void PlayerMovement(sf::Keyboard::Key k, bool inv);
@@ -27,4 +29,5 @@ private:
 public:
     void Update();
     void keyResponse(sf::Keyboard::Key k, bool keyReleased);
+    void setAudioPlayer(AudioPlayer* aud);
 };

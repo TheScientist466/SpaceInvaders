@@ -1,5 +1,5 @@
 #include "Headers/ObjectManager.h"
-
+#include "Headers/AudioPlayer.h"
 #include "Config/Config.h"
 
 static float clamp(float val, float lo, float hi)
@@ -43,11 +43,17 @@ void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _keyReleased)
                 Laser* l = new Laser(player.getPosition() + Config::Player::LaserOffset);
                 lasers.push_back(l);
                 playerCanShoot = false;
+                audPlayerRef->playLaserSound();
             }
         }
         else
             playerCanShoot = true;
     }
+}
+
+void ObjectManager::setAudioPlayer(AudioPlayer* aud)
+{
+    audPlayerRef = aud;
 }
 
 void ObjectManager::PlayerMovement(sf::Keyboard::Key k, bool inv)
@@ -77,6 +83,7 @@ void ObjectManager::EnemyLaserHitChecker()
             {
                 e->isAlive = false;
                 l->isAlive = false;
+                audPlayerRef->playExplosionSound();
             }
         }
     }

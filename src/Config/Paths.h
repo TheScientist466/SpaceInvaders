@@ -9,4 +9,5 @@ namespace Paths
 
     static const char* BackgoundAudio       = "Assets/Game/Audio/music_background.wav";
     static const char* LaserAudio           = "Assets/Game/Audio/laser_shot.wav";
+    static const char* ExplosionSound       = "Assets/Game/Audio/explosion_sound.wav";
 }

@@ -9,13 +9,16 @@ public:
 
 private:
     sf::Music backgroundMusic;
-    sf::Sound soundPlayer;
+    sf::Sound laserPlayer;
+    sf::Sound explotionPlayer;
 
 public:
     sf::SoundBuffer laserSound;
+    sf::SoundBuffer explosionSound;
 
 public:
     void playBackgroundMusic();
-    void playSound(sf::SoundBuffer& s);
+    void playLaserSound();
+    void playExplosionSound();
 
 };

@@ -16,6 +16,8 @@ Global::Global(ObjectManager* _objMgr)
     backgroundShape.setTexture(&backgroundTexture);
 
     objManagerRef = _objMgr;
+    objManagerRef->setAudioPlayer(&audPlayer);
+
     audioThread = new sf::Thread(&AudioPlayer::playBackgroundMusic, &audPlayer);
     audioThread->launch();
 }
@@ -48,13 +50,6 @@ void Global::checkEvents()
             return;
         case sf::Event::KeyPressed:
             objManagerRef->keyResponse(gameEvents.key.code, false);
-            switch (gameEvents.key.code)
-            {
-                case sf::Keyboard::Key::Space:
-                    audPlayer.playSound(audPlayer.laserSound);
-                default:
-                    break;
-            }
             break;
         case sf::Event::KeyReleased:
             objManagerRef->keyResponse(gameEvents.key.code, true);
