@@ -8,10 +8,12 @@ Enemy::Enemy(sf::Vector2f _initPos)
     moveSpeed /= 10.f;
 
     setObjectTexture(Paths::EnemySprite);
-    setObjectSpriteSize(Config::Player::TextureSize);
+    setObjectSpriteSize(Config::Enemy::TextureSize);
 
-    objectSprite.setOrigin(objectTexture->getSize().x / 2, 0);
+    objectSprite.setOrigin(sf::Vector2f(objectTexture->getSize().x / 2, 0) + Config::Enemy::OriginOffset);
     setPosition(_initPos);
+
+    hitBox = Config::Enemy::HitboxSize;
 }
 
 void Enemy::Update()

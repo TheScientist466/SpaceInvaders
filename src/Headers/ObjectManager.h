@@ -22,11 +22,9 @@ public:
 
 private:
     void PlayerMovement(sf::Keyboard::Key k, bool inv);
+    void EnemyLaserHitChecker();
 
 public:
     void Update();
     void keyResponse(sf::Keyboard::Key k, bool keyReleased);
-
-
-
 };

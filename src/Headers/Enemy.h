@@ -10,8 +10,5 @@ public:
     Enemy(sf::Vector2f initPos);
 
 public:
-    bool isAlive = true;
-
-public:
     void Update();
 };

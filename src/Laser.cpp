@@ -14,6 +14,8 @@ Laser::Laser(sf::Vector2f _pos, sf::Vector2f _dir)
     objectSprite.setOrigin(objectTexture->getSize().x / 2, objectTexture->getSize().y / 2);
 
     setPosition(_pos);
+
+    hitBox = Config::Laser::HitboxSize;
 }
 
 void Laser::update()

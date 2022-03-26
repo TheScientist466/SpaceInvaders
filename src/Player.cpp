@@ -14,6 +14,8 @@ Player::Player()
     objectSprite.setOrigin(objectTexture->getSize().x / 2, objectTexture->getSize().y);
 
     setPosition(Config::Player::InitPos);
+
+    hitBox = Config::Player::Hitbox;
 }
 
 

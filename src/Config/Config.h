@@ -25,6 +25,14 @@ namespace Config
 
     namespace Laser
     {
+        static const sf::Vector2f HitboxSize    = sf::Vector2f(10, 20);
         static const sf::Vector2u LaserSize     = sf::Vector2u(20, 20);
+    }
+
+    namespace Enemy
+    {
+        static const sf::Vector2f HitboxSize    = sf::Vector2f(50,  25);
+        static const sf::Vector2u TextureSize   = sf::Vector2u(100, 100);
+        static const sf::Vector2f OriginOffset  = sf::Vector2f(0, 250);
     }
 }

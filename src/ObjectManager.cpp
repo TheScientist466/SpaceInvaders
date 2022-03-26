@@ -67,9 +67,26 @@ void ObjectManager::PlayerMovement(sf::Keyboard::Key k, bool inv)
     playerDir = sf::Vector2f(clamp(playerDir.x, -1.f, 1.f), clamp(playerDir.y, -1.f, 1.f));
 }
 
+void ObjectManager::EnemyLaserHitChecker()
+{
+    for(auto& l : lasers)
+    {
+        for(auto& e : enemies)
+        {
+            if(e->doesIntersect(*l) && e->isAlive)
+            {
+                e->isAlive = false;
+                l->isAlive = false;
+            }
+        }
+    }
+}
+
 void ObjectManager::Update()
 {
     player.move(playerDir);
+
+    EnemyLaserHitChecker();
 
     for(int i = 0; i < enemies.size(); i++)
     {
@@ -83,11 +100,11 @@ void ObjectManager::Update()
 
     for(int i = 0; i < lasers.size(); i++)
     {
-        lasers[i]->update();
-        if(lasers[i]->getPosition().y < -150)
+        if(lasers[i]->getPosition().y < -150 || !lasers[i]->isAlive)
         {
             delete lasers[i];
-            lasers.erase(lasers.begin()+i);
+            lasers.erase(lasers.begin() + i);
         }
+        else lasers[i]->update();
     }
 }

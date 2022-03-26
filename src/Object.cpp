@@ -1,5 +1,7 @@
 #include "Headers/Object.h"
 
+#include <cmath>
+
 Object::Object()
 {
     objectTexture = new sf::Texture();
@@ -58,4 +60,17 @@ void Object::move(sf::Vector2f _dir)
 void Object::move(float x, float y)
 {
     move(sf::Vector2f(x, y));
+}
+
+bool Object::doesIntersect(Object& oth) const
+{
+    if(abs(position.x - oth.position.x) < (hitBox.x + oth.hitBox.x) / 2.f)
+    {
+        if(abs(position.y - oth.position.y) < (hitBox.y + oth.hitBox.y) / 2.f)
+        {
+            return true;
+        }
+        return false;
+    }
+    return false;
 }
