@@ -6,6 +6,7 @@
 #include "Laser.h"
 #include "Enemy.h"
 #include "AudioPlayer.h"
+#include "Spawner.h"
 
 class ObjectManager {
 
@@ -15,12 +16,14 @@ public:
 private:
     bool playerCanShoot;
 
+    AudioPlayer* audPlayerRef;
+    Spawner spawner;
+
 public:
     Player player;
     sf::Vector2f playerDir;
     std::vector<Laser*> lasers;
     std::vector<Enemy*> enemies;
-    AudioPlayer* audPlayerRef;
 
 private:
     void PlayerMovement(sf::Keyboard::Key k, bool inv);

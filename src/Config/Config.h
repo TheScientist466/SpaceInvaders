@@ -34,5 +34,8 @@ namespace Config
         static const sf::Vector2f HitboxSize    = sf::Vector2f(50,  25);
         static const sf::Vector2u TextureSize   = sf::Vector2u(100, 100);
         static const sf::Vector2f OriginOffset  = sf::Vector2f(0, 250);
+
+        static const float SpawnTimePeriod      = 2;
+        static const int SpawnDifficultyRate    = 3;
     }
 }

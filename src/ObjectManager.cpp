@@ -18,13 +18,9 @@ ObjectManager::ObjectManager()
     playerDir = sf::Vector2f(0, 0);
     playerCanShoot = true;
 
-    srand(time(nullptr));
+    srand(time(0));
 
-    for(int i = 0; i < 5; i++)
-    {
-        Enemy* e = new Enemy(sf::Vector2f((i + 1) * 150, 0));
-        enemies.push_back(e);
-    }
+    spawner = Spawner(&enemies);
 }
 
 void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _keyReleased)
@@ -92,6 +88,7 @@ void ObjectManager::EnemyLaserHitChecker()
 void ObjectManager::Update()
 {
     player.move(playerDir);
+    spawner.update();
 
     EnemyLaserHitChecker();
 

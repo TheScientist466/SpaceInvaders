@@ -20,6 +20,6 @@ void Enemy::Update()
 {
     move(0, 1);
 
-    if(position.y > Config::WindowConfig::windowDimentions.y)
+    if(position.y > Config::WindowConfig::windowDimentions.y + 50)
         setPosition(sf::Vector2f(position.x, -100));
 }
