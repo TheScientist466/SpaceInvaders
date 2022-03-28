@@ -15,7 +15,7 @@ public:
 
 private:
     bool playerCanShoot;
-
+    unsigned int score = 0, laserShot = 0;
     AudioPlayer* audPlayerRef;
     Spawner spawner;
 

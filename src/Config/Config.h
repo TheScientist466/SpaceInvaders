@@ -7,7 +7,7 @@ namespace Config
 {
     namespace WindowConfig
     {
-        static const sf::Vector2u windowDimentions  = sf::Vector2u(960U, 540U);
+        static const sf::Vector2u windowDimentions  = sf::Vector2u(1800U, 900U);
         static const char* windowTitle              = "Space Invaders";
     }
 

@@ -2,6 +2,8 @@
 #include "Headers/AudioPlayer.h"
 #include "Config/Config.h"
 
+#include <iostream>
+
 static float clamp(float val, float lo, float hi)
 {
     if(val < lo)
@@ -40,6 +42,7 @@ void ObjectManager::keyResponse(sf::Keyboard::Key k, bool _keyReleased)
                 lasers.push_back(l);
                 playerCanShoot = false;
                 audPlayerRef->playLaserSound();
+                laserShot++;
             }
         }
         else
@@ -79,6 +82,8 @@ void ObjectManager::EnemyLaserHitChecker()
             {
                 e->isAlive = false;
                 l->isAlive = false;
+                score++;
+                std::cout << "Enemies Killed : " << score  << ", Lasers Shot : " << laserShot << ", Accuracy : " << (score * 100)/(float)laserShot << "%" << std::endl;
                 audPlayerRef->playExplosionSound();
             }
         }
@@ -88,6 +93,13 @@ void ObjectManager::EnemyLaserHitChecker()
 void ObjectManager::Update()
 {
     player.move(playerDir);
+    
+    auto playerPos = player.getPosition();
+    if(playerPos.x < -50)
+        player.setPosition(sf::Vector2f(Config::WindowConfig::windowDimentions.x + 10, playerPos.y));
+    else if(playerPos.x > Config::WindowConfig::windowDimentions.x + 50)
+        player.setPosition(sf::Vector2f(-10, playerPos.y));
+    
     spawner.update();
 
     EnemyLaserHitChecker();

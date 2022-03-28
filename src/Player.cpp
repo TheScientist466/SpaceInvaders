@@ -13,7 +13,7 @@ Player::Player()
 
     objectSprite.setOrigin(objectTexture->getSize().x / 2, objectTexture->getSize().y);
 
-    setPosition(Config::Player::InitPos);
+    setPosition(sf::Vector2f(Config::WindowConfig::windowDimentions.x / 2, Config::Player::InitPos.y));
 
     hitBox = Config::Player::Hitbox;
 }
